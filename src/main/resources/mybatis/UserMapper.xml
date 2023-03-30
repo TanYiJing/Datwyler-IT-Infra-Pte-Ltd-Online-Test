@@ -8,12 +8,32 @@
         <result property="name" column="name"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="clientNo" column="clientNo"/>
+
     </resultMap>
 
 
     <select id="queryUserInfoByUsername" resultMap="result">
-        SELECT * FROM <include refid="table"/>
+        SELECT * FROM <include refid="table"/> WHERE username = #{username}
     </select>
+
+    <insert id="insertUserInfo" useGeneratedKeys="true">
+        INSERT INTO <include refid="table"/>  (
+        username,
+        password,
+        salt,
+        name,
+        clientNo
+        )
+        VALUES (
+        #{username},
+        #{password},
+        #{salt},
+        #{name},
+        #{clientNo}
+        )
+    </insert>
 
 
 </mapper>
