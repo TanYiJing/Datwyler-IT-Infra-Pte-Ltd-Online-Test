@@ -66,7 +66,7 @@ public class AccountServiceImpl implements AccountService {
         } catch (DuplicateKeyException exception) {
             return ResponseData.fail(ErrorCodeEnum.DUPLICATED_USERNAME);
         } catch (Exception ex) {
-            return ResponseData.fail(ErrorCodeEnum.SYSTEM_ERROR);
+            return ResponseData.fail(ErrorCodeEnum.SYSTEM_ERROR, ex.getMessage());
         }
 
         try {

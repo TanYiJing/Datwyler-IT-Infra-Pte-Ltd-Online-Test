@@ -44,4 +44,13 @@ public class ResponseData<T> {
         resultData.setTimestamp(String.valueOf(new Timestamp(date.getTime())));
         return resultData;
     }
+
+    public static <T> ResponseData<T> fail(ErrorCodeEnum errorCodeEnum, String message) {
+        Date date = new Date();
+        ResponseData<T> resultData = new ResponseData<>();
+        resultData.setCode(errorCodeEnum.getCode());
+        resultData.setMessage(message);
+        resultData.setTimestamp(String.valueOf(new Timestamp(date.getTime())));
+        return resultData;
+    }
 }

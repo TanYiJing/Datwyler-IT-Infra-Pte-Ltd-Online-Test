@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserDAL {
     UserDAO queryUserInfoByUsername(String username);
 
-    UserDAO insertUserInfo(String username, String clientNo, String name, String password, String salt);
+    boolean insertUserInfo(String username, String clientNo, String name, String password, String salt);
 }
