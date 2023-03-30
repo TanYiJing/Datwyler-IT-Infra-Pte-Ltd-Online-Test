@@ -1,12 +1,15 @@
 package com.example.onlineAssessment.service.impl;
 
 import com.example.onlineAssessment.enums.exception.ErrorCodeEnum;
+import com.example.onlineAssessment.infra.DAL.UserDAL;
+import com.example.onlineAssessment.infra.DAO.UserDAO;
 import com.example.onlineAssessment.model.base.ResponseData;
 import com.example.onlineAssessment.model.request.UserLoginRequest;
 import com.example.onlineAssessment.model.UserModel;
 import com.example.onlineAssessment.model.response.UserLoginResponse;
 import com.example.onlineAssessment.service.AccountService;
 import com.example.onlineAssessment.util.ArgonHashingUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
@@ -17,10 +20,12 @@ import java.security.NoSuchAlgorithmException;
 @Service
 public class AccountServiceImpl implements AccountService {
 
+    @Autowired
+    UserDAL userDAL;
     @Override
     public ResponseData<UserLoginResponse> login(UserLoginRequest userLoginInfo) {
         //todo query user from database
-        UserModel userInfo = new UserModel();
+        UserDAO user = userDAL.queryUserInfoByUsername(userLoginInfo.getUsername());
 
         boolean validUser = false;
         try {

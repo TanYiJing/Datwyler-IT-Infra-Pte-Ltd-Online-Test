@@ -15,12 +15,14 @@
                 <property name="url" value="jdbc:mysql://localhost:3306/entry_task"/>
                 <property name="username" value="root"/>
                 <property name="password" value="password"/>
+                <property name="salt" value="salt"/>
+
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <mapper resource="UserMapper.xml"/>
+        <mapper resource="mybatis/UserMapper.xml"/>
     </mappers>
 
 </configuration>
