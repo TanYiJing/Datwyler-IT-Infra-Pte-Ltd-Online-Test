@@ -9,5 +9,6 @@ import lombok.Data;
 public class QueryLoanDetailsRequest {
 
     private String clientNo;
+    private String loanNo;
 
 }

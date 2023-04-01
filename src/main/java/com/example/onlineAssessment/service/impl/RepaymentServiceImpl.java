@@ -4,6 +4,7 @@ import com.example.onlineAssessment.enums.CommonEnums;
 import com.example.onlineAssessment.enums.RepaymentType;
 import com.example.onlineAssessment.enums.exception.ErrorCodeEnum;
 import com.example.onlineAssessment.infra.DAL.LoanDAL;
+import com.example.onlineAssessment.infra.DAL.PaymentHistoryDAL;
 import com.example.onlineAssessment.infra.DAO.LoanDAO;
 import com.example.onlineAssessment.model.base.ResponseData;
 import com.example.onlineAssessment.model.request.RepaymentRequest;
@@ -20,6 +21,9 @@ public class RepaymentServiceImpl implements RepaymentService {
 
     @Autowired
     LoanDAL loanDAL;
+
+    @Autowired
+    PaymentHistoryDAL paymentHistoryDAL;
 
     @Override
     public ResponseData<RepaymentResponse> repayLoan(RepaymentRequest repaymentRequest) {
@@ -38,6 +42,12 @@ public class RepaymentServiceImpl implements RepaymentService {
 
         if (successCount != 0) {
             return ResponseData.fail(ErrorCodeEnum.SYSTEM_ERROR);
+        } else {
+            // save payment history into the database
+
+            paymentHistoryDAL.insertPaymentHistory(repaymentRequest.getClientNo(), repaymentRequest.getLoanNo(),
+                    repaymentRequest.getAmount(),
+                    Long.toString(System.currentTimeMillis()));
         }
         return ResponseData.success(assembleRepaymentResponse(repaymentRequest));
     }

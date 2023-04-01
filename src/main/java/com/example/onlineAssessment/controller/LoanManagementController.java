@@ -27,9 +27,7 @@ public class LoanManagementController {
     }
 
     @PostMapping("/queryLoanDetails")
-    public ResponseData<QueryLoanDetailsResponse> queryLoanDetails(
-            @RequestHeader(CONSTANT.CLIENT_SESSION_TOKEN) String x_SESSION_TOKEN
-            , @RequestBody QueryLoanDetailsRequest queryLoanDetailsRequest) {
-        return loanManagementService.queryLoanDetails(x_SESSION_TOKEN, queryLoanDetailsRequest);
+    public ResponseData<QueryLoanDetailsResponse> queryLoanDetails(@RequestBody QueryLoanDetailsRequest queryLoanDetailsRequest) {
+        return loanManagementService.queryLoanDetails(queryLoanDetailsRequest);
     }
 }

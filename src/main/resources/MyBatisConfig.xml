@@ -7,7 +7,7 @@
     <typeAliases>
         <typeAlias type="com.example.onlineAssessment.infra.DAO.UserDAO" alias="user"/>
         <typeAlias type="com.example.onlineAssessment.infra.DAO.LoanDAO" alias="loan"/>
-
+        <typeAlias type="com.example.onlineAssessment.infra.DAO.PaymentHistoryDO" alias="paymentHistory"/>
     </typeAliases>
     <environments default="local">
         <environment id="local">

@@ -15,16 +15,21 @@ public class QueryLoanDetailsResponse {
 
     @Data
     public static class LoanAccountDetails {
-        private String clientNo;
-        private String loanAccountNo;
+
+        private String loanNo;
         private List<PaymentDetails> paymentDetails;
     }
 
     @Data
     public static class PaymentDetails {
+        private String clientNo;
+
         private String status;
 
         private String amount;
+
+        private String timeStamp;
+
 
     }
 

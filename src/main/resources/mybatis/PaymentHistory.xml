@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.onlineAssessment.infra.DAL.PaymentHistoryDAL">
+    <sql id="table">paymentHistory</sql>
+    <resultMap id="result" type="paymentHistory">
+        <result property="id" column="id"/>
+        <result property="amount" column="amount"/>
+        <result property="loanNo" column="loanNo"/>
+        <result property="timeStamp" column="timeStamp"/>
+    </resultMap>
+
+
+    <insert id="insertPaymentHistory" useGeneratedKeys="true">
+        INSERT INTO
+        <include refid="table"/>
+        (
+        amount,
+        loanNo,
+        timestamp,
+        clientNo
+        )
+        VALUES (
+        #{amount},
+        #{loanNo},
+        #{timestamp},
+        #{clientNo}
+        )
+    </insert>
+
+    <select id="queryPaymentHistory" resultMap="result">
+        SELECT * FROM <include refid="table"/> WHERE loanNo = #{loanNo}
+    </select>
+
+</mapper>

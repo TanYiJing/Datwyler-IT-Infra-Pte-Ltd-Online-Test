@@ -12,5 +12,5 @@ import com.example.onlineAssessment.model.response.QueryLoanDetailsResponse;
 public interface LoanManagementService {
     ResponseData<DisburseLoanResponse> disburseLoan(DisburseLoanRequest userLoginInfo);
 
-    ResponseData<QueryLoanDetailsResponse> queryLoanDetails(String headerToken, QueryLoanDetailsRequest queryLoanDetailsRequest);
+    ResponseData<QueryLoanDetailsResponse> queryLoanDetails(QueryLoanDetailsRequest queryLoanDetailsRequest);
 }
