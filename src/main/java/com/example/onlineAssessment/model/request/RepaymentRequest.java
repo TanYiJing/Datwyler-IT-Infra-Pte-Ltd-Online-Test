@@ -13,6 +13,8 @@ public class RepaymentRequest {
 
     private RepaymentType repaymentType;
 
-    private String loanAccountNo;
+    private String loanNo;
+
+    private String clientNo;
 
 }

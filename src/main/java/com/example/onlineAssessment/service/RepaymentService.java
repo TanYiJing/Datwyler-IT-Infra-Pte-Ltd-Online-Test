@@ -9,6 +9,6 @@ import com.example.onlineAssessment.model.response.RepaymentResponse;
  */
 public interface RepaymentService {
 
-    ResponseData<RepaymentResponse> repayLoan(String sessionToken, RepaymentRequest repaymentRequest);
+    ResponseData<RepaymentResponse> repayLoan(RepaymentRequest repaymentRequest);
 
 }

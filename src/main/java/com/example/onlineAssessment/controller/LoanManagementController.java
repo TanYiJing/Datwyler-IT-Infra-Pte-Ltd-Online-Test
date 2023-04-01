@@ -5,7 +5,6 @@ import com.example.onlineAssessment.model.base.ResponseData;
 import com.example.onlineAssessment.model.request.DisburseLoanRequest;
 import com.example.onlineAssessment.model.request.QueryLoanDetailsRequest;
 import com.example.onlineAssessment.model.response.DisburseLoanResponse;
-import com.example.onlineAssessment.model.response.OnboardCreditFacilityResponse;
 import com.example.onlineAssessment.model.response.QueryLoanDetailsResponse;
 import com.example.onlineAssessment.service.LoanManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,8 @@ public class LoanManagementController {
 
     @PostMapping("/disbursement")
     public ResponseData<DisburseLoanResponse> disburseLoan(
-            @RequestHeader(CONSTANT.CLIENT_SESSION_TOKEN) String x_SESSION_TOKEN
-            , @RequestBody DisburseLoanRequest disburseLoanRequest) {
-        return loanManagementService.disburseLoan(x_SESSION_TOKEN, disburseLoanRequest);
+            @RequestBody DisburseLoanRequest disburseLoanRequest) {
+        return loanManagementService.disburseLoan(disburseLoanRequest);
     }
 
     @PostMapping("/queryLoanDetails")

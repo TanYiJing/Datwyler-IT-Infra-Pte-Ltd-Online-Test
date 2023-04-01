@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.onlineAssessment.infra.DAL.LoanDAL">
+    <sql id="table">loan</sql>
+    <resultMap id="result" type="loan">
+        <result property="clientNo" column="clientNo"/>
+        <result property="loanNo" column="loanNo"/>
+        <result property="outstandingAmount" column="outstandingAmount"/>
+    </resultMap>
+
+
+    <select id="queryLoanByClientNo" resultMap="result">
+        SELECT * FROM
+        <include refid="table"/>
+        WHERE clientNo = #{clientNo}
+    </select>
+
+    <select id="queryLoanByClientNoAndLoanNo" resultMap="result">
+        SELECT * FROM
+        <include refid="table"/>
+        WHERE clientNo = #{clientNo} and loanNo = #{loanNo} LIMIT 1
+    </select>
+
+
+    <insert id="insertLoan" useGeneratedKeys="true">
+        INSERT INTO
+        <include refid="table"/>
+        (
+        clientNo,
+        loanNo
+        )
+        VALUES (
+        #{clientNo},
+        #{loanNo}
+
+        )
+    </insert>
+
+    <update id="updateLoanAmountByLoanNoAndClientNo">
+        UPDATE
+        <include refid="table"/>
+        SET outstandingAmount = #{outstandingAmount}
+        WHERE loanNo = #{loanNo} and clientNo = #{clientNo}
+    </update>
+
+    <update id="repayFullLoanAmountByClientNoAndLoanNo">
+        UPDATE
+        <include refid="table"/>
+        SET outstandingAmount = '0'
+        WHERE loanNo = #{loanNo} and clientNo = #{clientNo}
+    </update>
+
+
+</mapper>

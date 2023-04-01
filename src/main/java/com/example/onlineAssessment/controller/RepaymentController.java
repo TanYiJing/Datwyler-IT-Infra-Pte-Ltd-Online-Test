@@ -17,9 +17,8 @@ public class RepaymentController {
 
     @PostMapping("/repayment")
     public ResponseData<RepaymentResponse> onboardCreditFacilityResponse(
-            @RequestHeader(CONSTANT.CLIENT_SESSION_TOKEN) String x_SESSION_TOKEN
-            , @RequestBody RepaymentRequest repaymentRequest) {
-        return repaymentService.repayLoan(x_SESSION_TOKEN, repaymentRequest);
+             @RequestBody RepaymentRequest repaymentRequest) {
+        return repaymentService.repayLoan(repaymentRequest);
     }
 
 }

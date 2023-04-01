@@ -8,5 +8,5 @@ import com.example.onlineAssessment.model.response.OnboardCreditFacilityResponse
  * @author yijing.tan
  */
 public interface OnboardService {
-    ResponseData<OnboardCreditFacilityResponse> onboardCreditFacility(String sessionToken, OnboardCreditFacilityRequest onboardCreditFacilityInfo);
+    ResponseData<OnboardCreditFacilityResponse> onboardCreditFacility(OnboardCreditFacilityRequest onboardCreditFacilityInfo);
 }

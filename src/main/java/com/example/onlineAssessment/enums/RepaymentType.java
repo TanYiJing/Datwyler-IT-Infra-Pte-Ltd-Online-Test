@@ -11,13 +11,13 @@ public enum RepaymentType {
     /**
      * Repayment Type
      */
-    PARTIAL_REPAYMENT(0, "Partial Repayment"),
+    PARTIAL_REPAYMENT("PR", "Partial Repayment"),
 
-    FULL_REPAYMENT(0, "Full Repayment");
-    private final int    code;
+    FULL_REPAYMENT("FR", "Full Repayment");
+    private final String code;
     private final String desc;
 
-    RepaymentType(int code, String desc) {
+    RepaymentType(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

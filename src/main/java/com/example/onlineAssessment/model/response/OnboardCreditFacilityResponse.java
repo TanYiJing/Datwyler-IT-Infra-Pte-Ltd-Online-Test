@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class OnboardCreditFacilityResponse {
 
-    private String loanAccountNo;
+    private String loanNo;
 
     private String status;
 

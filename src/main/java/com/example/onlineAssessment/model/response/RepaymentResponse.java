@@ -8,9 +8,11 @@ import lombok.Data;
 @Data
 public class RepaymentResponse {
 
-    private String loanAccountNo;
+    private String loanNo;
 
-    private String amount;
+    private String clientNo;
+
+    private String repaidAmount;
 
     private String status;
 }

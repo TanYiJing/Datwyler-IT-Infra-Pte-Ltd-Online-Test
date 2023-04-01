@@ -20,8 +20,7 @@ public class OnboardingController {
 
     @PostMapping("/creditFacility")
     public ResponseData<OnboardCreditFacilityResponse> onboardCreditFacilityResponse(
-            @RequestHeader(CONSTANT.CLIENT_SESSION_TOKEN) String x_SESSION_TOKEN
-            , @RequestBody OnboardCreditFacilityRequest onboardCreditFacilityRequest) {
-        return onboardService.onboardCreditFacility(x_SESSION_TOKEN, onboardCreditFacilityRequest);
+             @RequestBody OnboardCreditFacilityRequest onboardCreditFacilityRequest) {
+        return onboardService.onboardCreditFacility(onboardCreditFacilityRequest);
     }
 }

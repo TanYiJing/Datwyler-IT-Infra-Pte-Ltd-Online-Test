@@ -10,7 +10,7 @@ import com.example.onlineAssessment.model.response.QueryLoanDetailsResponse;
  * @author yijing.tan
  */
 public interface LoanManagementService {
-    ResponseData<DisburseLoanResponse> disburseLoan(String adminHeaderToken, DisburseLoanRequest userLoginInfo);
+    ResponseData<DisburseLoanResponse> disburseLoan(DisburseLoanRequest userLoginInfo);
 
     ResponseData<QueryLoanDetailsResponse> queryLoanDetails(String headerToken, QueryLoanDetailsRequest queryLoanDetailsRequest);
 }
